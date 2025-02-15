@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  gap:20px;
+}
+.books{
+  padding: 50px;
+  color:teal;
+  border:2px;
+  border:solid;
+  border-radius: 15px;
+}
+.Study{
+  padding:50px;
+  color:teal;
+  border:2px;
+  border:solid;
+  border-radius: 15px;
+}
+.academia{
+  padding:50px;
+  color:teal;
+  border:2px;
+  border:solid;
+  border-radius: 15px;
+}
