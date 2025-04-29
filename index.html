@@ -63,7 +63,6 @@
             text-decoration: underline;
         }
 
-     
         .add-form {
             background: white;
             padding: 20px;
@@ -93,11 +92,49 @@
         .add-form button:hover {
             background: darkcyan;
         }
+
+        /* New styles for reading list dropdown */
+        .dropdown-card {
+            padding: 20px;
+            background: white;
+            color: teal;
+            border: 2px solid teal;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .dropdown-card.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-card h3 {
+            position: relative;
+        }
+
+        .dropdown-card h3:after {
+            content: '▼';
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-card.active h3:after {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body>
 
-  
     <div class="add-form">
         <h3>Add a New Link</h3>
         <input type="text" id="title" placeholder="Enter title" required>
@@ -106,11 +143,11 @@
             <option value="fiction-list">Web Fiction</option>
             <option value="study-list">Study / Programming</option>
             <option value="academia-list">Academia</option>
+            <option value="reading-list">Reading List</option>
         </select>
         <button onclick="addLink()">Add Link</button>
     </div>
 
-    
     <div class="container">
         <div class="card">
             <h3>Web Fiction</h3>
@@ -142,6 +179,17 @@
                 <li><a href="https://academia.srmist.edu.in/#WELCOME" target="_blank">Academia</a></li>
             </ul>
         </div>
+
+        <!-- New Reading List Dropdown Card -->
+        <div class="dropdown-card" onclick="toggleDropdown(this)">
+            <h3>Reading List</h3>
+            <div class="dropdown-content">
+                <ul id="reading-list">
+                    <li><a href="https://www.goodreads.com" target="_blank">Goodreads</a></li>
+                    <li><a href="https://www.amazon.com/kindle-dbs/fd/kcp" target="_blank">Kindle Cloud Reader</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -164,9 +212,12 @@
             newItem.appendChild(newLink);
             document.getElementById(category).appendChild(newItem);
 
-            
             document.getElementById("title").value = "";
             document.getElementById("url").value = "";
+        }
+
+        function toggleDropdown(element) {
+            element.classList.toggle("active");
         }
     </script>
 
