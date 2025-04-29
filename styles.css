@@ -1,25 +1,152 @@
-.container{
-  display: flex;
-  gap:20px;
-}
-.books{
-  padding: 50px;
-  color:teal;
-  border:2px;
-  border:solid;
-  border-radius: 15px;
-}
-.Study{
-  padding:50px;
-  color:teal;
-  border:2px;
-  border:solid;
-  border-radius: 15px;
-}
-.academia{
-  padding:50px;
-  color:teal;
-  border:2px;
-  border:solid;
-  border-radius: 15px;
-}
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            background: white;
+            color: teal;
+            border: 2px solid teal;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 8px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: darkslategray;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: teal;
+            text-decoration: underline;
+        }
+        
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .delete-btn {
+            visibility: hidden;
+            color: #ff4d4d;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 0 5px;
+            margin-left: 10px;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .link-item:hover .delete-btn {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .add-form {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .add-form input, .add-form select, .add-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .add-form button {
+            background: teal;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-form button:hover {
+            background: darkcyan;
+        }
+
+        /* New styles for reading list dropdown */
+        .dropdown-card {
+            padding: 20px;
+            background: white;
+            color: teal;
+            border: 2px solid teal;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .dropdown-card.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-card h3 {
+            position: relative;
+        }
+
+        .dropdown-card h3:after {
+            content: '▼';
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-card.active h3:after {
+            transform: rotate(180deg);
+        }
